@@ -1,10 +1,10 @@
 :root {
-    --slate-dark: #0b0f19;    /* Clean deep midnight executive color */
-    --slate-medium: #1e293b;  /* Accent container background */
-    --teal-clinical: #0d9488; /* Biotech sterile teal accent */
-    --border-clean: #e2e8f0;  /* Fine laboratory wireframe borders */
-    --bg-light: #f8fafc;      /* Crisp hospital clean grey-white */
-    --text-body: #334155;     /* Easy readability muted dark text */
+    --slate-dark: #0b0f19;    
+    --slate-medium: #1e293b;  
+    --teal-clinical: #0d9488; 
+    --border-clean: #e2e8f0;  
+    --bg-light: #f8fafc;      
+    --text-body: #334155;     
 }
 
 * {
@@ -26,7 +26,7 @@ body {
     margin: 0 auto;
 }
 
-/* Executive Header Configuration */
+/* Executive Header */
 header {
     background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid var(--border-clean);
@@ -79,7 +79,6 @@ nav ul li a {
     color: var(--text-body);
     font-weight: 500;
     font-size: 14px;
-    transition: color 0.2s;
 }
 
 nav ul li a:hover {
@@ -126,15 +125,12 @@ nav ul li a:hover {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 12px;
-    letter-spacing: 0.5px;
 }
 
 .hero-text h2 {
     font-size: 34px;
     font-weight: 800;
-    letter-spacing: -0.5px;
     margin-bottom: 12px;
-    color: var(--slate-dark);
 }
 
 .hero-text p {
@@ -149,7 +145,7 @@ nav ul li a:hover {
     gap: 12px;
 }
 
-/* Standard Buttons UI */
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -157,7 +153,6 @@ nav ul li a:hover {
     font-weight: 600;
     border-radius: 6px;
     text-decoration: none;
-    transition: all 0.2s;
 }
 
 .btn-primary {
@@ -175,52 +170,7 @@ nav ul li a:hover {
     border: 1px solid var(--border-clean);
 }
 
-.btn-secondary:hover {
-    background-color: var(--bg-light);
-}
-
-/* Institutional Logo Trust Bar Styling */
-.logo-bar-section {
-    padding: 30px 0;
-    background-color: #ffffff;
-    border-top: 1px solid var(--border-clean);
-    border-bottom: 1px solid var(--border-clean);
-}
-
-.logo-bar-title {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    color: #94a3b8;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.logo-bar-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.trust-logo {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-    color: #94a3b8;
-    opacity: 0.75;
-    user-select: none;
-    padding: 5px 10px;
-}
-
-.brand-rutgers { font-family: "Georgia", serif; color: #cc0033; font-weight: 800; }
-.brand-bayer { font-family: "Arial Black", sans-serif; color: #0091df; text-transform: uppercase; font-style: italic; }
-.brand-uufa { font-family: "Impact", sans-serif; color: #1e3a8a; letter-spacing: 1px; }
-.brand-lemoyne { font-family: "Trebuchet MS", sans-serif; color: #44055d; font-weight: bold; }
-
-/* Skills Section Grid style */
+/* Skills Section */
 .skills-section {
     padding: 30px 0;
     background-color: var(--bg-light);
@@ -241,10 +191,61 @@ nav ul li a:hover {
     font-weight: 500;
     padding: 5px 12px;
     border-radius: 4px;
-    color: var(--slate-dark);
 }
 
-/* Bento Education Display Rules */
+/* Branding Alignment Rows */
+.card-branding-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-clean);
+    padding-bottom: 10px;
+}
+
+/* Embedded High-Fidelity Custom Brand CSS Logos */
+.inline-logo {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: -0.2px;
+}
+
+.brand-rutgers { 
+    font-family: "Georgia", serif; 
+    color: #cc0033; 
+    font-weight: 800;
+    background-color: #fff5f5;
+    border: 1px solid #fed7d7;
+}
+
+.brand-bayer { 
+    font-family: "Arial Black", sans-serif; 
+    color: #0091df; 
+    text-transform: uppercase; 
+    font-style: italic;
+    background-color: #ebf8ff;
+    border: 1px solid #bee3f8;
+}
+
+.brand-uufa { 
+    font-family: "Impact", sans-serif; 
+    color: #1e3a8a; 
+    letter-spacing: 0.5px;
+    background-color: #edf2f7;
+    border: 1px solid #e2e8f0;
+}
+
+.brand-lemoyne { 
+    font-family: "Trebuchet MS", sans-serif; 
+    color: #3b82f6; 
+    font-weight: bold;
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+}
+
+/* Bento Education Display */
 .bento-education {
     display: flex;
     flex-direction: column;
@@ -264,11 +265,6 @@ nav ul li a:hover {
     align-items: center;
 }
 
-.edu-flex-header h4 {
-    font-size: 20px;
-    font-weight: 700;
-}
-
 .gpa-badge {
     background-color: #f0fdf4;
     color: #16a34a;
@@ -281,7 +277,7 @@ nav ul li a:hover {
 
 .degree-main {
     font-weight: 600;
-    margin-top: 5px;
+    margin-top: 10px;
     color: var(--teal-clinical);
 }
 
@@ -301,18 +297,12 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 8px;
     background-color: #ffffff;
-    transition: box-shadow 0.2s;
-}
-
-.course-bento-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
 .course-bento-card h6 {
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 5px;
-    color: var(--slate-dark);
 }
 
 .course-bento-card p {
@@ -337,7 +327,6 @@ nav ul li a:hover {
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 35px;
-    letter-spacing: -0.5px;
 }
 
 .text-white { color: #ffffff; }
@@ -350,36 +339,23 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-.dark-accent-bg .timeline-card {
-    border: 1px solid var(--slate-medium);
-}
-
-.timeline-card:last-child { margin-bottom: 0; }
-
-.timeline-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 15px;
-}
-
 .timeline-card-header h4 {
     font-size: 16px;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .date-tag {
     font-size: 12px;
     font-weight: 600;
     color: var(--teal-clinical);
-    white-space: nowrap;
 }
 
 .institution-sub {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-body);
-    margin: 3px 0 15px 0;
+    margin-bottom: 15px;
 }
 
 .bullet-points {
@@ -390,7 +366,7 @@ nav ul li a:hover {
 
 .bullet-points li { margin-bottom: 5px; }
 
-/* Engineering Projects Area layout rules */
+/* Engineering Projects Layout */
 .project-split-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -431,9 +407,7 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-.text-anchor-link:hover { text-decoration: underline; }
-
-/* Executive Footer / Contact Frame layout styling */
+/* Executive Footer / Contact Frame */
 .executive-footer {
     background-color: var(--slate-dark);
     color: #ffffff;
@@ -476,21 +450,14 @@ nav ul li a:hover {
     border: 1px solid var(--slate-medium);
 }
 
-.executive-footer .btn-secondary:hover {
-    background-color: var(--slate-medium);
-}
-
 .copyright-text {
     font-size: 12px;
     color: #475569;
 }
 
-/* Mobile Core Fluid Scale Parameters */
 @media (max-width: 768px) {
     .hero-flex { flex-direction: column; text-align: center; gap: 30px; }
     .hero-actions { justify-content: center; }
     .header-flex { flex-direction: column; gap: 15px; }
-    .edu-flex-header, .timeline-card-header { flex-direction: column; align-items: flex-start; gap: 5px; }
     .project-split-grid { grid-template-columns: 1fr; }
-    .logo-bar-grid { gap: 15px; justify-content: center; }
 }
