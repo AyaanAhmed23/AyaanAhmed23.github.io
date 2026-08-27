@@ -203,33 +203,49 @@ nav ul li a:hover {
     padding-bottom: 10px;
 }
 
-/* Logo Image Containers & Dynamic Optimization Rules */
-.logo-img-wrapper {
+/* Flex Align Containers for Inline Circular Logo Badging */
+.brand-title-inline {
     display: flex;
     align-items: center;
-    background-color: transparent;
+    gap: 12px;
 }
 
 .inline-logo-img {
-    height: auto;
-    display: block;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-clean);
+    background-color: #ffffff;
+    flex-shrink: 0;
 }
 
-/* Explicit scaling metrics mapped to each unique branding asset */
-.bayer-crop {
-    max-height: 48px;
+.project-avatar-placeholder {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-clean);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
 }
 
-.lemoyne-crop {
-    max-height: 44px;
+.brand-text {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    color: var(--slate-dark);
 }
 
-.rutgers-crop {
-    max-height: 45px;
+.dark-accent-bg .brand-text {
+    color: var(--slate-dark);
 }
 
-.uufa-crop {
-    max-height: 38px;
+.shadow-dark {
+    color: var(--slate-dark);
 }
 
 /* Bento Education Display */
