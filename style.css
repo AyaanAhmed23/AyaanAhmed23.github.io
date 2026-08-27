@@ -78,9 +78,11 @@ nav ul li a:hover {
 
 .hero-flex {
     display: flex;
-    align-items: center;
-    gap: 40px;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 50px; 
 }
+
 
 .hero-image-container {
     flex-shrink: 0;
