@@ -203,46 +203,33 @@ nav ul li a:hover {
     padding-bottom: 10px;
 }
 
-/* Embedded High-Fidelity Custom Brand CSS Logos */
-.inline-logo {
-    font-size: 15px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-    letter-spacing: -0.2px;
+/* Logo Image Containers & Dynamic Optimization Rules */
+.logo-img-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
 }
 
-.brand-rutgers { 
-    font-family: "Georgia", serif; 
-    color: #cc0033; 
-    font-weight: 800;
-    background-color: #fff5f5;
-    border: 1px solid #fed7d7;
+.inline-logo-img {
+    height: auto;
+    display: block;
 }
 
-.brand-bayer { 
-    font-family: "Arial Black", sans-serif; 
-    color: #0091df; 
-    text-transform: uppercase; 
-    font-style: italic;
-    background-color: #ebf8ff;
-    border: 1px solid #bee3f8;
+/* Explicit scaling metrics mapped to each unique branding asset */
+.bayer-crop {
+    max-height: 48px;
 }
 
-.brand-uufa { 
-    font-family: "Impact", sans-serif; 
-    color: #1e3a8a; 
-    letter-spacing: 0.5px;
-    background-color: #edf2f7;
-    border: 1px solid #e2e8f0;
+.lemoyne-crop {
+    max-height: 44px;
 }
 
-.brand-lemoyne { 
-    font-family: "Trebuchet MS", sans-serif; 
-    color: #3b82f6; 
-    font-weight: bold;
-    background-color: #eff6ff;
-    border: 1px solid #dbeafe;
+.rutgers-crop {
+    max-height: 45px;
+}
+
+.uufa-crop {
+    max-height: 38px;
 }
 
 /* Bento Education Display */
@@ -277,7 +264,7 @@ nav ul li a:hover {
 
 .degree-main {
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 15px;
     color: var(--teal-clinical);
 }
 
@@ -460,4 +447,6 @@ nav ul li a:hover {
     .hero-actions { justify-content: center; }
     .header-flex { flex-direction: column; gap: 15px; }
     .project-split-grid { grid-template-columns: 1fr; }
+    .card-branding-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .edu-flex-header { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
