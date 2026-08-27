@@ -65,12 +65,14 @@ html {
 /* ==========================================================================
    2. HEADER & NAVIGATION
    ========================================================================== */
+/* ==========================================================================
+   2. HEADER & NAVIGATION (DARK EXECUTIVE THEME)
+   ========================================================================== */
 header {
     position: sticky;
     top: 0;
-    background-color: #0f172a(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border-color);
+    background-color: #0f172a; /* Solid Dark Slate */
+    border-bottom: 1px solid #1e293b;
     z-index: 1000;
     padding: 16px 0;
 }
@@ -81,10 +83,12 @@ header {
     align-items: center;
 }
 
+/* White Logo Brand Text */
 .logo-text {
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--bg-light);
+    color: #ffffff;
+    text-decoration: none;
     letter-spacing: -0.5px;
 }
 
@@ -94,16 +98,20 @@ nav ul {
     gap: 24px;
 }
 
+/* White Navigation Links */
 nav a {
     text-decoration: none;
-    color: var(--text-muted);
+    color: #cbd5e1; /* Soft off-white for crisp readability */
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
 }
 
-nav a:hover {
-    color: var(--accent-color);
+/* Bright Hover & Focus State */
+nav a:hover,
+nav a:focus {
+    color: #ffffff; /* Pure white on hover */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* ==========================================================================
