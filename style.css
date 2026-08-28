@@ -1,65 +1,54 @@
 /* ==========================================================================
-   1. GLOBAL RESET & BASE STYLES
+   1. GLOBAL VARIABLES & RESET
    ========================================================================== */
 :root {
-    --primary-color: #0f172a;       /* Dark Executive Slate */
-    --accent-color: #2563eb;        /* Professional Blue */
-    --accent-hover: #1d4ed8;
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
-    --bg-light: #f8fafc;
-    --bg-alt: #f1f5f9;
-    --card-bg: #ffffff;
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --transition: all 0.3s ease;
+    --bg-base: #0b1120;
+    --bg-card: rgba(18, 26, 47, 0.75);
+    --bg-card-border: rgba(56, 189, 248, 0.15);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-teal: #06b6d4;
+    --accent-blue: #3b82f6;
+    --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-family: var(--font-sans);
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Subtle Biotech Grid Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px;
-}
-
-.section-padding {
-    padding: 80px 0;
-}
-
-.dark-accent-bg {
-    background-color: var(--primary-color);
-    color: #ffffff;
-}
-
-.alt-grey-bg {
-    background-color: var(--bg-alt);
-}
-
-.section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-    letter-spacing: -0.5px;
-}
-
-.text-white {
-    color: #ffffff;
+    padding: 0 1.5rem;
 }
 
 /* ==========================================================================
@@ -68,270 +57,275 @@ html {
 header {
     position: sticky;
     top: 0;
-    background-color: #0f172a; /* Solid Dark Slate */
-    border-bottom: 1px solid #1e293b;
-    z-index: 1000;
-    padding: 16px 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(11, 17, 32, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header-flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    height: 70px;
 }
 
-/* White Logo Brand Text */
 .logo-text {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: -0.5px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent-teal); /* Fallback color for legacy browsers */
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 2rem;
 }
 
-/* White Navigation Links */
 nav a {
+    color: var(--text-muted);
     text-decoration: none;
-    color: #cbd5e1; /* Soft off-white for crisp readability */
+    font-size: 0.9rem;
     font-weight: 500;
-    font-size: 0.95rem;
-    transition: var(--transition);
+    transition: color 0.2s ease;
 }
 
-/* Bright Hover & Focus State */
-nav a:hover,
-nav a:focus {
-    color: #ffffff; /* Pure white on hover */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+nav a:hover {
+    color: var(--accent-teal);
 }
 
 /* ==========================================================================
    3. HERO BLOCK
    ========================================================================== */
 .hero {
-    padding: 90px 0 60px;
+    padding: 5rem 0 3rem 0;
 }
 
 .hero-flex {
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 3rem;
 }
 
 .hero-image-container {
+    position: relative;
     flex-shrink: 0;
 }
 
-/* Circular Headshot Formatting */
 .profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 190px;
+    height: 190px;
     object-fit: cover;
-    border: 4px solid #ffffff;
-    box-shadow: var(--shadow-md);
+    border-radius: 50%;
+    border: 2px solid var(--accent-teal);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
 }
 
 .ldp-tag {
     display: inline-block;
-    background-color: #dbeafe;
-    color: var(--accent-color);
+    padding: 0.35rem 0.85rem;
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 100px;
+    color: var(--accent-teal);
+    font-size: 0.8rem;
     font-weight: 600;
-    font-size: 0.85rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 .hero-text h2 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     line-height: 1.2;
-    color: var(--primary-color);
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .hero-text p {
-    font-size: 1.05rem;
     color: var(--text-muted);
-    margin-bottom: 24px;
+    font-size: 1.05rem;
+    margin-bottom: 1.75rem;
     max-width: 650px;
 }
 
 .hero-actions {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
 }
 
+/* Buttons */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
     border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.2s ease;
 }
 
 .btn-primary {
-    background-color: var(--accent-color);
-    color: #ffffff;
+    background: var(--accent-gradient);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-hover);
-}
-
-.btn-secondary {
-    background-color: #ffffff;
-    color: var(--text-dark);
-    border: 1px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-    background-color: var(--bg-alt);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
 }
 
 /* ==========================================================================
    4. CORE SKILLS BADGES
    ========================================================================== */
 .skills-section {
-    padding: 30px 0 60px;
+    padding: 2rem 0;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 0.75rem;
     justify-content: center;
 }
 
 .skill-badge {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    box-shadow: var(--shadow-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: var(--text-main);
+    backdrop-filter: blur(8px);
 }
 
 /* ==========================================================================
    5. PROFESSIONAL EXPERIENCE (TIMELINE)
    ========================================================================== */
+.section-padding {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-teal);
+    border-radius: 2px;
+}
+
 .timeline-card {
-    background-color: #1e293b; /* Dark card surface */
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    margin-bottom: 24px;
-    border: 1px solid #334155;
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(8px);
 }
 
 .card-branding-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .brand-title-inline {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
-/* Circular Logo Formatting */
 .inline-logo-img {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
     object-fit: cover;
-    background-color: #ffffff;
+    border-radius: 50%;
+    background: #fff;
     padding: 2px;
 }
 
 .brand-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #ffffff;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
-.date-tag {
-    font-size: 0.85rem;
-    color: #94a3b8;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 4px 12px;
-    border-radius: 12px;
+.date-tag, .tech-tag {
+    font-size: 0.8rem;
+    color: var(--accent-teal);
+    background: rgba(6, 182, 212, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
-.timeline-card-header h4 {
-    font-size: 1.2rem;
-    color: #f8fafc;
-    margin-bottom: 4px;
-}
-
-.institution-sub {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    margin-bottom: 16px;
-    font-style: italic;
+.timeline-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--accent-blue);
 }
 
 .bullet-points {
-    padding-left: 20px;
-    color: #cbd5e1;
+    list-style-position: inside;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 .bullet-points li {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
 }
 
 /* ==========================================================================
    6. BENTO-GRID ACADEMIC SECTION
    ========================================================================== */
-.bento-education {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .bento-main-edu {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    box-shadow: var(--shadow-sm);
-}
-
-.bento-main-edu .brand-text {
-    color: var(--primary-color);
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .edu-flex-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
 }
 
 .gpa-badge {
-    background-color: #dcfce7;
-    color: #15803d;
-    font-weight: 700;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: var(--accent-blue);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
     font-size: 0.85rem;
-    padding: 4px 12px;
-    border-radius: 12px;
+    font-weight: 600;
 }
 
 .degree-main {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
 .degree-sub {
@@ -341,22 +335,21 @@ nav a:focus {
 
 .bento-grid-coursework {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
 }
 
 .course-bento-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 20px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 10px;
+    padding: 1.25rem;
 }
 
-.course-bento-card h6 {
+.course-bento-card h4 {
     font-size: 0.95rem;
-    margin-bottom: 8px;
-    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
 }
 
 .course-bento-card p {
@@ -370,60 +363,41 @@ nav a:focus {
 .project-split-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    gap: 1.5rem;
 }
 
-.project-box, .card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    box-shadow: var(--shadow-sm);
+.project-box {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 12px;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
-.project-box .brand-text {
-    color: var(--primary-color);
-}
-
-.tech-tag, .tag {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color: var(--bg-alt);
-    color: var(--text-muted);
-    padding: 4px 10px;
-    border-radius: 6px;
-    align-self: flex-start;
-}
-
-.card .tag {
-    margin-bottom: 12px;
-}
-
-.project-box h4, .card h4 {
+.project-box h3 {
     font-size: 1.15rem;
-    color: var(--primary-color);
-    margin: 12px 0 8px;
+    margin: 0.75rem 0;
+    color: var(--accent-blue);
 }
 
-.project-box p, .card p {
-    font-size: 0.9rem;
+.project-box p {
     color: var(--text-muted);
-    margin-bottom: 16px;
-    flex-grow: 1;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
 }
 
 .text-anchor-link {
-    color: var(--accent-color);
+    color: var(--accent-teal);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
+    transition: opacity 0.2s;
 }
 
 .text-anchor-link:hover {
-    text-decoration: underline;
+    opacity: 0.8;
 }
 
 /* ==========================================================================
@@ -431,40 +405,39 @@ nav a:focus {
    ========================================================================== */
 .contact {
     text-align: center;
-    padding: 80px 0;
-    background-color: var(--card-bg);
-    border-top: 1px solid var(--border-color);
+    padding: 5rem 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.05) 100%);
 }
 
-.contact h3 {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
 }
 
 .contact p {
     color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto 16px;
+    margin: 0 auto 1rem auto;
 }
 
 .contact-info {
     font-weight: 600;
-    color: var(--primary-color) !important;
-    margin-bottom: 24px !important;
+    color: var(--text-main) !important;
+    margin-bottom: 2rem !important;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 1rem;
 }
 
 footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem 0;
     text-align: center;
-    padding: 24px 0;
-    background-color: var(--primary-color);
-    color: #94a3b8;
     font-size: 0.85rem;
+    color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -480,18 +453,13 @@ footer {
         justify-content: center;
     }
 
-    .header-flex {
+    .card-branding-row {
         flex-direction: column;
-        gap: 12px;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
 
     nav ul {
-        gap: 16px;
-    }
-
-    .card-branding-row, .edu-flex-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        display: none;
     }
 }
